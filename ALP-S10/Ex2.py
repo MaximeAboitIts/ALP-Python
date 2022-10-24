@@ -36,7 +36,6 @@ def analyse_des_notes(lst_notes):
     ValNbValeur0 = 0
     ValNbValeur1et6 = 0
     ValNbInf4 = 0
-    ValNbSup4 = 0
 
     for i in range(len(lst_notes)):
         if lst_notes[i] == 0:
