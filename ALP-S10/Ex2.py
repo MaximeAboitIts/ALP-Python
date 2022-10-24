@@ -10,8 +10,6 @@
     (Il est prévu d'en faire par la suite une version pour la France, où les notes vont de 0 à 20, avec la limite du suffisant à 10.) '''
 
 # Constantes
-from multiprocessing.connection import Client
-from turtle import circle
 
 
 NOTE_OK = 0
@@ -41,14 +39,16 @@ def analyse_des_notes(lst_notes):
         if lst_notes[i] == 0:
             ValNbValeur0 = ValNbValeur0 + 1
         if lst_notes[i] >= NOTE_MIN and lst_notes[i] <= NOTE_MAX:
-            return NOTE_INVALIDE
+            return NOTE_OK
         if lst_notes[i] <= LIMITE_SUFFISANT:
             ValNbInf4 = ValNbInf4 + 1
+        else:
+            return NOTE_INVALIDE
 
     if ValNbValeur0 == len(lst_notes):
         return AUCUNE_NOTE
     elif ValNbValeur1et6 != len(lst_notes):
-        return NOTE_INVALIDE
+        return NOTE_OK
     elif ValNbInf4 == len(lst_notes):
         return NOTE_OK
 
